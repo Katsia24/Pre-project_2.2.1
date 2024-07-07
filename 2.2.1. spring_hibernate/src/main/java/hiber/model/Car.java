@@ -3,15 +3,16 @@ package hiber.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
 public class Car {
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @MapsId
     @JoinColumn(name = "id")
     private User user;
 
     @Id
+    @Column(name = "id")
     private Long id;
     @Column(name = "model")
     private String model;
@@ -58,5 +59,13 @@ public class Car {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", series=" + series +
+                '}';
     }
 }
