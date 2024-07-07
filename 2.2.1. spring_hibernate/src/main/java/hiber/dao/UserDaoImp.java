@@ -1,5 +1,6 @@
 package hiber.dao;
 
+import hiber.model.Car;
 import hiber.model.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,21 @@ public class UserDaoImp implements UserDao {
    public void add(User user) {
       sessionFactory.getCurrentSession().save(user);
    }
+
+   @Override
+   public void addUserWithCar(User user, Car car) {
+      car.setUser(user);
+      sessionFactory.getCurrentSession().save(user);
+      sessionFactory.getCurrentSession().save(car);
+
+
+//      String sql = "insert into users (name, email, password) values (?, ?, ?)";
+//
+//      sessionFactory.getCurrentSession().createQuery("");
+//      insert into users (id, name) values (3, 'Petr');
+//      insert into user_details (phone, user_id) values ('154623',  1);
+   }
+
 
    @Override
    @SuppressWarnings("unchecked")
