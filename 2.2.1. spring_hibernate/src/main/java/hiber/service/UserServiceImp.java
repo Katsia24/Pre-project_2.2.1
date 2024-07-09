@@ -12,37 +12,37 @@ import java.util.List;
 @Service
 public class UserServiceImp implements UserService {
 
-   @Autowired
-   private UserDao userDao;
+    @Autowired
+    private UserDao userDao;
 
-   @Transactional
-   @Override
-   public void add(User user) {
-      userDao.add(user);
-   }
+    @Transactional
+    @Override
+    public void add(User user) {
+        userDao.add(user);
+    }
 
-   @Transactional
-   @Override
-   public void addUserWithCar(User user, Car car) {
-      userDao.addUserWithCar(user, car);
-   }
+    @Transactional
+    @Override
+    public void addUserWithCar(User user, Car car) {
+        userDao.addUserWithCar(user, car);
+    }
 
-   @Transactional(readOnly = true)
-   @Override
-   public List<User> listUsers() {
-      return userDao.listUsers();
-   }
+    @Transactional(readOnly = true)
+    @Override
+    public List<User> listUsers() {
+        return userDao.listUsers();
+    }
 
-   @Transactional(readOnly = true)
-   @Override
-   public List<User> listUsersWithCars() {
-      return userDao.listUsersWithCars();
-   }
+    @Transactional(readOnly = true)
+    @Override
+    public List<User> listUsersWithCars() {
+        return userDao.listUsersWithCars();
+    }
 
-   @Transactional(readOnly = true)
-   @Override
-   public User getUserByCarParam(String model, int series) {
-      return userDao.getUserByCarParam(model, series);
-   }
+    @Transactional(readOnly = true)
+    @Override
+    public User getUserByCarParam(String model, int series) {
+        return userDao.getUserByCarParam(model, series);
+    }
 
 }

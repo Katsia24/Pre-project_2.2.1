@@ -22,9 +22,7 @@ public class Car {
     public Car() {
     }
 
-    public Car( String model, int series) {
-        //this.user = user;
-//        this.id = id;
+    public Car(String model, int series) {
         this.model = model;
         this.series = series;
     }
