@@ -39,8 +39,8 @@ public class UserDaoImp implements UserDao {
    @Override
    @SuppressWarnings("unchecked")
    public List<User> listUsersWithCars() {
-      String sql="FROM User, Car where User.id = Car.user.id ";
-      TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery(sql);
+      String hql="FROM User user LEFT JOIN FETCH user.car WHERE user.id = user.car.id ";
+      TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery(hql, User.class);
       return query.getResultList();
    }
 
